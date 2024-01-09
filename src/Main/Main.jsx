@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom';
 
 const Main = () => {
     return (
-        <div>
+        <div className="px-4 md:px-0">
             <Header></Header>
             <Outlet></Outlet>
         </div>

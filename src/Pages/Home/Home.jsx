@@ -1,9 +1,10 @@
 import React from 'react';
+import Footer from '../../Components/Footer/Footer';
 
 const Home = () => {
     return (
-        <div>
-            <h1>This is Home</h1>
+        <div className='container mx-auto'>
+            <Footer></Footer>
         </div>
     );
 };
