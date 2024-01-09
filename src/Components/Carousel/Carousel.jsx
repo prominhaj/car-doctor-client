@@ -10,8 +10,8 @@ const Carousel = () => {
             <div className="carousel w-full mt-4 -z-10 lg:h-[700px] rounded-lg">
                 <div id="slide1" className="carousel-item relative bg-cover bg-center bg-si w-full" style={{backgroundImage: `url('${img1}')`}}>
                     {/* <img src={img1} className=" w-full rounded-xl" /> */}
-                    <div className="rounded-xl flex items-center bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)] p-5">
-                        <div className="text-white space-y-7 pl-12 md:w-1/2 font-['Inter']">
+                    <div className="rounded-xl flex items-center bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)] sm:p-5">
+                        <div className="text-white space-y-7 p-3 sm:pl-12 md:w-1/2 font-['Inter']">
                             <h2 className="text-white text-4xl lg:text-6xl font-bold lg:leading-[75px]">Affordable Price For Car Servicing</h2>
                             <p className="text-white text-lg font-normal capitalize leading-[30px]">There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
                             <div className='flex gap-5'>
@@ -27,8 +27,8 @@ const Carousel = () => {
                 </div>
                 <div id="slide2" className="carousel-item relative bg-cover bg-center bg-si w-full" style={{backgroundImage: `url('${img2}')`}}>
                     {/* <img src={img2} className=" w-full rounded-xl" /> */}
-                    <div className="rounded-xl flex items-center p-5 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)]">
-                        <div className="text-white space-y-7 pl-12 md:w-1/2 font-['Inter']">
+                    <div className="rounded-xl flex items-center sm:p-5 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)]">
+                        <div className="text-white space-y-7 p-3 sm:pl-12 md:w-1/2 font-['Inter']">
                             <h2 className="text-white text-4xl lg:text-6xl font-bold lg:leading-[75px]">Affordable Price For Car Servicing</h2>
                             <p className="text-white text-lg font-normal capitalize leading-[30px]">There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
                             <div className='flex gap-5'>
@@ -44,8 +44,8 @@ const Carousel = () => {
                 </div>
                 <div id="slide3" className="carousel-item relative bg-cover bg-center bg-si w-full" style={{backgroundImage: `url('${img3}')`}}>
                     {/* <img src={img3} className=" w-full rounded-xl" /> */}
-                    <div className="rounded-xl flex items-center p-5 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)]">
-                        <div className="text-white space-y-7 pl-12 md:w-1/2 font-['Inter']">
+                    <div className="rounded-xl flex items-center sm:p-5 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)]">
+                        <div className="text-white space-y-7 p-3 sm:pl-12 md:w-1/2 font-['Inter']">
                             <h2 className="text-white text-4xl lg:text-6xl font-bold lg:leading-[75px]">Affordable Price For Car Servicing</h2>
                             <p className="text-white text-lg font-normal capitalize leading-[30px]">There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
                             <div className='flex gap-5'>
@@ -61,8 +61,8 @@ const Carousel = () => {
                 </div>
                 <div id="slide4" className="carousel-item relative bg-cover bg-center bg-si w-full" style={{backgroundImage: `url('${img4}')`}}>
                     {/* <img src={img4} className=" w-full rounded-xl" /> */}
-                    <div className="rounded-xl flex items-center p-5 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)]">
-                        <div className="text-white space-y-7 pl-12 md:w-1/2 font-['Inter']">
+                    <div className="rounded-xl flex items-center sm:p-5 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)]">
+                        <div className="text-white space-y-7 p-3 sm:pl-12 md:w-1/2 font-['Inter']">
                             <h2 className="text-white text-4xl lg:text-6xl font-bold lg:leading-[75px]">Affordable Price For Car Servicing</h2>
                             <p className="text-white text-lg font-normal capitalize leading-[30px]">There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
                             <div className='flex gap-5'>
