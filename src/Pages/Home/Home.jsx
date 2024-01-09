@@ -3,6 +3,7 @@ import Footer from '../../Components/Footer/Footer';
 import Carousel from '../../Components/Carousel/Carousel';
 import About_Us from '../../Components/About_Us/About_Us';
 import Service_Area from '../../Components/Service_Area/Service_Area';
+import Season from '../../Components/Season/Season';
 
 const Home = () => {
     return (
@@ -10,6 +11,7 @@ const Home = () => {
             <Carousel></Carousel>
             <About_Us></About_Us>
             <Service_Area></Service_Area>
+            <Season></Season>
             <Footer></Footer>
         </div>
     );
