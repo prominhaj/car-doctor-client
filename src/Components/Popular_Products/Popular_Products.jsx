@@ -15,6 +15,9 @@ const Popular_Products = () => {
                 <Product_Card></Product_Card>
                 <Product_Card></Product_Card>
             </div>
+            <div className='flex justify-center'>
+                <button className="btn btn-outline text-center text-orange-600 text-lg font-semibold hover:bg-orange-600 duration-500 hover:text-white font-['Inter']">More Services</button>
+            </div>
         </div>
     );
 };
