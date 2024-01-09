@@ -6,6 +6,7 @@ import Service_Area from '../../Components/Service_Area/Service_Area';
 import Season from '../../Components/Season/Season';
 import Popular_Products from '../../Components/Popular_Products/Popular_Products';
 import Team from '../../Components/Team/Team';
+import Core_Features from '../../Components/Core_Features/Core_Features';
 
 const Home = () => {
     return (
@@ -16,6 +17,7 @@ const Home = () => {
             <Season></Season>
             <Popular_Products></Popular_Products>
             <Team></Team>
+            <Core_Features></Core_Features>
             <Footer></Footer>
         </div>
     );
