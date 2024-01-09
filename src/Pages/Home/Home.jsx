@@ -4,6 +4,7 @@ import Carousel from '../../Components/Carousel/Carousel';
 import About_Us from '../../Components/About_Us/About_Us';
 import Service_Area from '../../Components/Service_Area/Service_Area';
 import Season from '../../Components/Season/Season';
+import Popular_Products from '../../Components/Popular_Products/Popular_Products';
 
 const Home = () => {
     return (
@@ -12,6 +13,7 @@ const Home = () => {
             <About_Us></About_Us>
             <Service_Area></Service_Area>
             <Season></Season>
+            <Popular_Products></Popular_Products>
             <Footer></Footer>
         </div>
     );
