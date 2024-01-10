@@ -6,8 +6,10 @@ const Team = () => {
     const settings = {
         className: 'py-10',
         dots: true,
+        lazyLoad: true,
         infinite: true,
         speed: 500,
+        autoplay: true,
         slidesToShow: 3,
         slidesToScroll: 3,
         initialSlide: 0,

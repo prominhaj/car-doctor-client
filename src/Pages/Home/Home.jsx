@@ -7,6 +7,7 @@ import Season from '../../Components/Season/Season';
 import Popular_Products from '../../Components/Popular_Products/Popular_Products';
 import Team from '../../Components/Team/Team';
 import Core_Features from '../../Components/Core_Features/Core_Features';
+import Testimonial from '../../Components/Testimonial/Testimonial';
 
 const Home = () => {
     return (
@@ -18,6 +19,7 @@ const Home = () => {
             <Popular_Products></Popular_Products>
             <Team></Team>
             <Core_Features></Core_Features>
+            <Testimonial></Testimonial>
             <Footer></Footer>
         </div>
     );
