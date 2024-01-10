@@ -60,14 +60,6 @@ const Header = () => {
                                 Services
                             </NavLink>
                             <NavLink
-                                to="/blog"
-                                className={({ isActive, isPending }) =>
-                                    isPending ? "pending" : isActive ? "text-lg font-bold text-blue-600" : "text-neutral-700 text-lg font-['Inter']"
-                                }
-                            >
-                                Blog
-                            </NavLink>
-                            <NavLink
                                 to="/login"
                                 className={({ isActive, isPending }) =>
                                     isPending ? "pending" : isActive ? "text-lg font-bold text-blue-600" : "text-neutral-700 text-lg font-['Inter']"
@@ -132,14 +124,6 @@ const Header = () => {
                                         }
                                     >
                                         Services
-                                    </NavLink>
-                                    <NavLink
-                                        to="/blog"
-                                        className={({ isActive, isPending }) =>
-                                            isPending ? "pending" : isActive ? "text-lg font-bold text-blue-600" : "text-neutral-700 text-lg font-['Inter']"
-                                        }
-                                    >
-                                        Blog
                                     </NavLink>
                                     <NavLink
                                         to="/login"

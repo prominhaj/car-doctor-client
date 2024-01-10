@@ -1,16 +1,50 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import loginImg from '../../assets/images/login/login.svg';
-import { FaFacebookF, FaGoogle  } from "react-icons/fa";
+import { FaGithub   } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
 import { Link } from 'react-router-dom';
+import { UserContext } from '../../Context/Auth_Context';
+import toast from 'react-hot-toast';
+import Swal from 'sweetalert2';
 
 const Login = () => {
+    const {logIn, githubSingUp, googleSingUp} = useContext(UserContext);
+
+    // Toast
+    const error = error => toast.error(error);
+
+    const handleSingIn = event => {
+        const loading = toast.loading('Loading...');
+        () => loading;
+
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        // Auth 
+        logIn(email, password)
+        .then(() => {
+            toast.dismiss(loading);
+            Swal.fire({
+                title: "Login SuccessFull",
+                text: "You clicked the button!",
+                icon: "success"
+            });
+        })
+        .catch(e => {
+            toast.dismiss(loading);
+            error(e.message.substr(10));
+        })
+    }
+
     return (
         <div className="container mx-auto grid gap-10 lg:grid-cols-2  items-center py-10 px-5">
             <div className='hidden lg:block'>
                 <img className='block' src={loginImg} alt="" />
             </div>
             <div className="rounded-[10px] py-[50px] px-[30px] sm:px-[80px] border border-stone-300">
-                <form >
+                <form onSubmit={handleSingIn}>
                     <h2 className="text-center text-neutral-700 text-[40px] font-semibold font-['Inter']">Login</h2>
                     <div className="flex flex-col gap-7 mt-6">
                         <div className='flex flex-col gap-2'>
@@ -26,8 +60,8 @@ const Login = () => {
                     <div className='pt-8 flex flex-col gap-5'>
                         <p className="text-center text-neutral-700 text-lg font-medium font-['Inter']">Or Sign In with</p>
                         <div className='flex justify-center gap-7'>
-                            <button className="w-[55px] h-[55px] group/item btn border-none flex justify-center items-center bg-neutral-100 rounded-full" type="button"><FaFacebookF className='text-[#3B5998] h-full group-hover/item:text-white' /></button>
-                            <button className="w-[55px] h-[55px] group/item btn border-none flex justify-center items-center bg-neutral-100 rounded-full" type="button"><FaGoogle className='text-[#EB4132] w-full h-full group-hover/item:text-white' /></button>
+                            <button onClick={githubSingUp} className="w-[55px] h-[55px] group/item btn border-none flex justify-center items-center bg-neutral-100 rounded-full" type="button"><FaGithub  className='text-black w-full h-full group-hover/item:text-white' /></button>
+                            <button onClick={googleSingUp} className="w-[55px] h-[55px] group/item btn border-none flex justify-center items-center bg-neutral-100 rounded-full" type="button"><FcGoogle className=' w-full h-full group-hover/item:text-white' /></button>
                         </div>
                         <p className="text-center text-neutral-500 text-lg font-normal font-['Inter']">Have an account? <Link className="text-orange-600 text-lg font-semibold font-['Inter']" to="/register">Sign Up</Link></p>
                     </div>
