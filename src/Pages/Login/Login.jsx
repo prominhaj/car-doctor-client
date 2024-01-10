@@ -12,7 +12,7 @@ const Login = () => {
             <div className="rounded-[10px] py-[50px] px-[30px] sm:px-[80px] border border-stone-300">
                 <form >
                     <h2 className="text-center text-neutral-700 text-[40px] font-semibold font-['Inter']">Login</h2>
-                    <div className="flex flex-col gap-7">
+                    <div className="flex flex-col gap-7 mt-6">
                         <div className='flex flex-col gap-2'>
                             <label className="text-neutral-700 text-lg font-semibold font-['Inter']" htmlFor="email">Email</label>
                             <input className="bg-white px-3 py-2 text-lg text-gray-800 outline-none rounded border border-gray-200" type="email" name="email" id="email" placeholder='Your email' />
@@ -29,7 +29,7 @@ const Login = () => {
                             <button className="w-[55px] h-[55px] group/item btn border-none flex justify-center items-center bg-neutral-100 rounded-full" type="button"><FaFacebookF className='text-[#3B5998] h-full group-hover/item:text-white' /></button>
                             <button className="w-[55px] h-[55px] group/item btn border-none flex justify-center items-center bg-neutral-100 rounded-full" type="button"><FaGoogle className='text-[#EB4132] w-full h-full group-hover/item:text-white' /></button>
                         </div>
-                        <p className="text-center text-neutral-500 text-lg font-normal font-['Inter']">Have an account? <Link className="text-orange-600 text-lg font-semibold font-['Inter']" to="/register">Sign In</Link></p>
+                        <p className="text-center text-neutral-500 text-lg font-normal font-['Inter']">Have an account? <Link className="text-orange-600 text-lg font-semibold font-['Inter']" to="/register">Sign Up</Link></p>
                     </div>
                 </form>
             </div>
