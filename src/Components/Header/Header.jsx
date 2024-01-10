@@ -68,12 +68,12 @@ const Header = () => {
                                 Blog
                             </NavLink>
                             <NavLink
-                                to="/contact"
+                                to="/login"
                                 className={({ isActive, isPending }) =>
                                     isPending ? "pending" : isActive ? "text-lg font-bold text-blue-600" : "text-neutral-700 text-lg font-['Inter']"
                                 }
                             >
-                                Contact
+                                Login
                             </NavLink>
                         </div>
                     </div>
