@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import logoImg from '../../assets/logo.svg';
 import { useState } from 'react'
 import { Dialog } from '@headlessui/react'
@@ -6,12 +6,47 @@ import {
     Bars3Icon,
     XMarkIcon,
 } from '@heroicons/react/24/outline'
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { FaShopify } from "react-icons/fa6";
 import { CiSearch } from "react-icons/ci";
+import { UserContext } from '../../Context/Auth_Context';
+import Swal from 'sweetalert2';
+import { getAuth, signOut } from 'firebase/auth';
+import app from '../../Firebase/Firebase.config';
+import profilePic from '../../assets/Profile-photo.jpg';
+
+const auth = getAuth(app);
 
 const Header = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const { user } = useContext(UserContext);
+    const navigate = useNavigate();
+
+    // Log Out
+    const logOut = () => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't Log Out",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, Log Out it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                signOut(auth)
+                    .then(() => {
+                        Swal.fire({
+                            title: "Log Out SuccessFull",
+                            text: "Your file has been deleted.",
+                            icon: "success"
+                        });
+                        navigate('/login')
+                    })
+            }
+        });
+
+    }
 
     return (
         <div>
@@ -59,26 +94,45 @@ const Header = () => {
                             >
                                 Services
                             </NavLink>
-                            <NavLink
+                            {/* <NavLink
                                 to="/login"
                                 className={({ isActive, isPending }) =>
                                     isPending ? "pending" : isActive ? "text-lg font-bold text-blue-600" : "text-neutral-700 text-lg font-['Inter']"
                                 }
                             >
                                 Login
-                            </NavLink>
+                            </NavLink> */}
                         </div>
                     </div>
                     <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                        <div className='flex items-center gap-5'>
-                            <Link>
-                                <FaShopify className='w-8 h-8' />
-                            </Link>
-                            <button>
-                                <CiSearch className='w-8 h-8' />
-                            </button>
-                            <button className="btn btn-outline text-center text-orange-600 hover:text-white text-lg font-semibold font-['Inter'] hover:bg-orange-600">Appointment</button>
-                        </div>
+                        {
+                            user ? <div className='flex items-center gap-6'>
+                                <Link>
+                                    <FaShopify className='w-8 h-8 text-blue-600' />
+                                </Link>
+                                <details className="dropdown">
+                                    <summary className="m-1 flex marker:text-transparent">
+                                        <div className="avatar">
+                                            <div className="w-10 cursor-pointer rounded-full ring ring-primary">
+                                                <img src={user.photoURL ? user.photoURL : profilePic} />
+                                            </div>
+                                        </div>
+                                    </summary>
+                                    <ul className="py-2 px-4 mt-2 menu dropdown-content z-10 bg-slate-500 rounded-box w-52 shadow-2xl">
+                                        <li className='text-white text-lg font-medium'>Name:   {user.displayName ? user.displayName : 'No Name'}</li>
+                                    </ul>
+                                </details>
+
+                                <button onClick={logOut} className="btn btn-outline text-center text-orange-600 hover:text-white text-lg font-semibold font-['Inter'] hover:bg-orange-600">Log Out</button>
+                            </div> : <NavLink
+                                to="/login"
+                                className={({ isActive, isPending }) =>
+                                    isPending ? "pending" : isActive ? "text-lg font-bold text-white btn btn-outline text-center hover:text-white hover:bg-orange-600 font-['Inter'] bg-blue-600" : " btn btn-outline text-center text-orange-600 hover:text-white text-lg font-semibold hover:bg-orange-600 font-['Inter']"
+                                }
+                            >
+                                Login
+                            </NavLink>
+                        }
                     </div>
                 </nav>
                 {/* Mobile Device */}
@@ -125,24 +179,44 @@ const Header = () => {
                                     >
                                         Services
                                     </NavLink>
-                                    <NavLink
+                                    {/* <NavLink
                                         to="/login"
                                         className={({ isActive, isPending }) =>
                                             isPending ? "pending" : isActive ? "text-lg font-bold text-blue-600" : "text-neutral-700 text-lg font-['Inter']"
                                         }
                                     >
                                         Login
-                                    </NavLink>
+                                    </NavLink> */}
                                 </div>
                                 <div className="py-6">
                                     <div className='flex flex-wrap items-center gap-5'>
-                                        <Link>
-                                            <FaShopify className='w-8 h-8' />
-                                        </Link>
-                                        <button>
-                                            <CiSearch className='w-8 h-8' />
-                                        </button>
-                                        <button className="btn btn-outline text-center text-orange-600 hover:text-white text-lg font-semibold font-['Inter'] hover:bg-orange-600">Appointment</button>
+                                        {
+                                            user ? <div className='flex items-center gap-5'>
+                                                <Link>
+                                                    <FaShopify className='w-8 h-8 text-blue-600' />
+                                                </Link>
+                                                <details className="dropdown">
+                                                    <summary className="m-1 flex marker:text-transparent">
+                                                        <div className="avatar">
+                                                            <div className="w-10 cursor-pointer rounded-full ring ring-primary">
+                                                                <img src={user.photoURL ? user.photoURL : profilePic} />
+                                                            </div>
+                                                        </div>
+                                                    </summary>
+                                                    <ul className="py-2 px-4 mt-2 menu dropdown-content z-10 bg-slate-500 rounded-box w-52 shadow-2xl">
+                                                        <li className='text-white text-lg font-medium'>Name:   {user.displayName ? user.displayName : 'No Name'}</li>
+                                                    </ul>
+                                                </details>
+                                                <button onClick={logOut} className="btn btn-outline text-center text-orange-600 hover:text-white text-lg font-semibold font-['Inter'] hover:bg-orange-600">Log Out</button>
+                                            </div> : <NavLink
+                                                to="/login"
+                                                className={({ isActive, isPending }) =>
+                                                    isPending ? "pending" : isActive ? "text-lg font-bold text-white btn btn-outline text-center hover:text-white hover:bg-orange-600 font-['Inter'] bg-blue-600" : " btn btn-outline text-center text-orange-600 hover:text-white text-lg font-semibold hover:bg-orange-600 font-['Inter']"
+                                                }
+                                            >
+                                                Login
+                                            </NavLink>
+                                        }
                                     </div>
                                 </div>
                             </div>

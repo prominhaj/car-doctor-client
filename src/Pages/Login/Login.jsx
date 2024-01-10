@@ -2,13 +2,14 @@ import React, { useContext } from 'react';
 import loginImg from '../../assets/images/login/login.svg';
 import { FaGithub   } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { UserContext } from '../../Context/Auth_Context';
 import toast from 'react-hot-toast';
 import Swal from 'sweetalert2';
 
 const Login = () => {
     const {logIn, githubSingUp, googleSingUp} = useContext(UserContext);
+    const navigate = useNavigate();
 
     // Toast
     const error = error => toast.error(error);
@@ -31,6 +32,47 @@ const Login = () => {
                 text: "You clicked the button!",
                 icon: "success"
             });
+            navigate('/')
+        })
+        .catch(e => {
+            toast.dismiss(loading);
+            error(e.message.substr(10));
+        })
+    }
+
+    const handleGithubAuth = () => {
+        const loading = toast.loading('Loading...');
+        () => loading;
+
+        githubSingUp()
+        .then(() => {
+            toast.dismiss(loading);
+            Swal.fire({
+                title: "Login SuccessFull",
+                text: "You clicked the button!",
+                icon: "success"
+            });
+            navigate('/');
+        })
+        .catch(e => {
+            toast.dismiss(loading);
+            error(e.message.substr(10));
+        })
+    }
+
+    const handleGoogleAuth = () => {
+        const loading = toast.loading('Loading...');
+        () => loading;
+
+        googleSingUp()
+        .then(() => {
+            toast.dismiss(loading);
+            Swal.fire({
+                title: "Login SuccessFull",
+                text: "You clicked the button!",
+                icon: "success"
+            });
+            navigate('/');
         })
         .catch(e => {
             toast.dismiss(loading);
@@ -60,8 +102,8 @@ const Login = () => {
                     <div className='pt-8 flex flex-col gap-5'>
                         <p className="text-center text-neutral-700 text-lg font-medium font-['Inter']">Or Sign In with</p>
                         <div className='flex justify-center gap-7'>
-                            <button onClick={githubSingUp} className="w-[55px] h-[55px] group/item btn border-none flex justify-center items-center bg-neutral-100 rounded-full" type="button"><FaGithub  className='text-black w-full h-full group-hover/item:text-white' /></button>
-                            <button onClick={googleSingUp} className="w-[55px] h-[55px] group/item btn border-none flex justify-center items-center bg-neutral-100 rounded-full" type="button"><FcGoogle className=' w-full h-full group-hover/item:text-white' /></button>
+                            <button onClick={handleGithubAuth} className="w-[55px] h-[55px] group/item btn border-none flex justify-center items-center bg-neutral-100 rounded-full" type="button"><FaGithub  className='text-black w-full h-full group-hover/item:text-white' /></button>
+                            <button onClick={handleGoogleAuth} className="w-[55px] h-[55px] group/item btn border-none flex justify-center items-center bg-neutral-100 rounded-full" type="button"><FcGoogle className=' w-full h-full group-hover/item:text-white' /></button>
                         </div>
                         <p className="text-center text-neutral-500 text-lg font-normal font-['Inter']">Have an account? <Link className="text-orange-600 text-lg font-semibold font-['Inter']" to="/register">Sign Up</Link></p>
                     </div>
