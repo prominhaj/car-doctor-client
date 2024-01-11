@@ -20,7 +20,6 @@ const Home = () => {
             <Team></Team>
             <Core_Features></Core_Features>
             <Testimonial></Testimonial>
-            <Footer></Footer>
         </div>
     );
 };

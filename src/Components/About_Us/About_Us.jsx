@@ -1,6 +1,7 @@
 import React from 'react';
 import parsonal from '../../assets/images/about_us/person.jpg';
 import parse from '../../assets/images/about_us/parts.jpg';
+import { Link } from 'react-router-dom';
 
 const About_Us = () => {
     return (
@@ -18,7 +19,7 @@ const About_Us = () => {
                 <h1 className="text-neutral-900 text-[30px] md:text-[45px] font-bold font-['Inter']">We are qualified & of experience in this field</h1>
                 <p className="text-neutral-500 text-base font-normal font-['Inter'] capitalize md:leading-[30px] mt-4">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </p>
                 <p className="text-neutral-500 my-4 text-base font-normal font-['Inter'] capitalize leading-[30px]">the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </p>
-                <button className="btn btn-error text-center mt-2 text-white text-lg font-semibold font-['Inter']">Get More Info</button>
+                <Link to="/about" className="btn btn-error text-center mt-2 text-white text-lg font-semibold font-['Inter']">Get More Info</Link>
             </div>
         </div>
     );

@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
-        <div>
-            <footer className="footer md:grid-cols-2 lg:grid-cols-4 md:gap-20 p-10 bg-neutral-900  text-neutral-content">
+        <div className="bg-neutral-900 text-neutral-content">
+            <footer className="footer container mx-auto md:grid-cols-2 lg:grid-cols-4 md:gap-20 p-10">
                 <nav>
                     <img src={logoImg} className="w-auto h-16 md:h-20" />
                     <p className="link link-hover">Edwin Diaz is a software and web technologies engineer, a life coach trainer who is also a serial .</p>

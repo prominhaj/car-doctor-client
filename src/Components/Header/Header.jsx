@@ -49,9 +49,9 @@ const Header = () => {
     }
 
     return (
-        <div>
+        <div className='sticky top-0 z-50'>
             <header className="bg-white">
-                <nav className="flex container mx-auto items-center justify-between p-6 lg:px-8" aria-label="Global">
+                <nav className="flex container mx-auto items-center justify-between p-4 lg:px-8" aria-label="Global">
                     <div className="flex lg:flex-1">
                         <Link to="/">
                             <img className="w-auto h-16 md:h-20" src={logoImg} alt="" />
