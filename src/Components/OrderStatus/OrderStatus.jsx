@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { FaX } from "react-icons/fa6";
 
+<<<<<<< HEAD
 const OrderStatus = ({ order, handleStatus, deleteOrder }) => {
+=======
+const OrderStatus = ({ order, handleStatus }) => {
+>>>>>>> 852eb53acaf4e64d4a94f7c8784411328d97c951
     const { img, date, service, price, _id, status } = order;
 
     return (
@@ -17,7 +21,11 @@ const OrderStatus = ({ order, handleStatus, deleteOrder }) => {
             </div>
             <div>
                 {
+<<<<<<< HEAD
                     status === 'Complete' ? <button className="rounded-[10px] border border-green-500 py-2 px-3 text-center text-green-500 text-xl font-semibold font-['Inter'] leading-[30px]">{status}</button> : <button onClick={() => handleStatus(_id)} className="bg-[#FF3811] py-2 px-3 rounded-[10px] text-center text-white text-xl font-semibold font-['Inter'] leading-[30px]">{status}</button>
+=======
+                    status === 'Complete' ? <button className="rounded-[10px] border border-green-500 py-2 px-3 rounded-[10px] text-center text-green-500 text-xl font-semibold font-['Inter'] leading-[30px]">{status}</button> : <button onClick={() => handleStatus(_id)} className="bg-[#FF3811] py-2 px-3 rounded-[10px] text-center text-white text-xl font-semibold font-['Inter'] leading-[30px]">{status}</button>
+>>>>>>> 852eb53acaf4e64d4a94f7c8784411328d97c951
                 }
             </div>
         </div>
