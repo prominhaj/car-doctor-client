@@ -50,6 +50,7 @@ const OrderDetails = () => {
                     .then(data => {
                         if (data.acknowledged) {
                             const remaining = orders.filter(order => order._id !== id);
+                            setOrders(remaining)
                             Swal.fire({
                                 title: "Deleted!",
                                 text: "Your file has been deleted.",
