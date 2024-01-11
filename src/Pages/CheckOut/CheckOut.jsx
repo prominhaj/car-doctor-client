@@ -1,10 +1,9 @@
 import React, { useContext } from 'react';
-import victor from '../../assets/images/checkout/checkout.png';
 import { useLoaderData } from 'react-router-dom';
 import { UserContext } from '../../Context/Auth_Context';
 import toast from 'react-hot-toast';
 import Swal from 'sweetalert2';
-
+import DetailsHadingPart from '../../Components/DetailsHadingPart/DetailsHadingPart';
 
 const CheckOut = () => {
     const { user } = useContext(UserContext)
@@ -57,11 +56,7 @@ const CheckOut = () => {
     return (
         <div className='container mx-auto'>
             <div className='mb-20'>
-                <div className='relative'>
-                    <div style={{ backgroundImage: `url('${img}')` }} className="bg-no-repeat py-16 md:py-32 bg-bottom bg-cover my-10 before:w-full before:h-full before:bg-opacity-55 before:top-0 before:z-10 before:left-0 before:absolute before:bg-neutral-900 before:rounded-lg rounded-lg">
-                        <div className="text-white text-center px-6 text-3xl lg:text-[45px] font-bold relative z-30 font-['Inter']">Booking: {title}</div>
-                    </div>
-                </div>
+                <DetailsHadingPart Children={'Booking: '+title}></DetailsHadingPart>
                 <div className='bg-zinc-100 rounded-[10px] mt-16 p-10 lg:p-28'>
                     <form onSubmit={handleBookingService} className='grid gap-6'>
                         <div className='grid lg:grid-cols-2 gap-6'>

@@ -107,7 +107,7 @@ const Header = () => {
                     <div className="hidden lg:flex lg:flex-1 lg:justify-end">
                         {
                             user ? <div className='flex items-center gap-6'>
-                                <Link>
+                                <Link to="/details">
                                     <FaShopify className='w-8 h-8 text-blue-600' />
                                 </Link>
                                 <details className="dropdown">
@@ -192,7 +192,7 @@ const Header = () => {
                                     <div className='flex flex-wrap items-center gap-5'>
                                         {
                                             user ? <div className='flex items-center gap-5'>
-                                                <Link>
+                                                <Link to="/details">
                                                     <FaShopify className='w-8 h-8 text-blue-600' />
                                                 </Link>
                                                 <details className="dropdown">
