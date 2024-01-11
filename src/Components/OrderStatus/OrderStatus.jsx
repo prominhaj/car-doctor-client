@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaX } from "react-icons/fa6";
 
-const OrderStatus = ({ order }) => {
-    const {img, date, service, price} = order;
+const OrderStatus = ({ order, handleStatus }) => {
+    const { img, date, service, price, _id, status } = order;
+
     return (
         <div className='flex items-center justify-center flex-wrap md:justify-between gap-10'>
             <div className="flex items-center flex-wrap justify-center gap-6">
@@ -15,7 +16,9 @@ const OrderStatus = ({ order }) => {
                 </div>
             </div>
             <div>
-                <button className="bg-[#FF3811] py-2 px-3 rounded-[10px] text-center text-white text-xl font-semibold font-['Inter'] leading-[30px]">Pending</button>
+                {
+                    status === 'Complete' ? <button className="rounded-[10px] border border-green-500 py-2 px-3 rounded-[10px] text-center text-green-500 text-xl font-semibold font-['Inter'] leading-[30px]">{status}</button> : <button onClick={() => handleStatus(_id)} className="bg-[#FF3811] py-2 px-3 rounded-[10px] text-center text-white text-xl font-semibold font-['Inter'] leading-[30px]">{status}</button>
+                }
             </div>
         </div>
     );

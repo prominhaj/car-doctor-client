@@ -30,7 +30,8 @@ const CheckOut = () => {
             date,
             price,
             serviceId: _id,
-            message
+            message,
+            status: 'Pending'
         }
         console.log(newBooking);
         fetch('http://localhost:5000/checkout', {
