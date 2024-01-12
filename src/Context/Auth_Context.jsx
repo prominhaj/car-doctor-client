@@ -68,7 +68,6 @@ const Auth_Context = ({ children }) => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
             localStorage.setItem("car-access-token", data.token);
           });
       } else {
