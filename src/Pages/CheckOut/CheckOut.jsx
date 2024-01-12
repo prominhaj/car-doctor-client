@@ -34,7 +34,7 @@ const CheckOut = () => {
             status: 'Pending'
         }
         console.log(newBooking);
-        fetch('http://localhost:5000/checkout', {
+        fetch('https://car-doctor-server-rho-eight.vercel.app/checkout', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(newBooking)

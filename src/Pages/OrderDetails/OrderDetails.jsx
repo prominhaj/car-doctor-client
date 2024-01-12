@@ -10,7 +10,7 @@ const OrderDetails = () => {
     const [orders, setOrders] = useState([]);
     const navigate = useNavigate();
 
-    const url = `http://localhost:5000/details?email=${user?.email}`;
+    const url = `https://car-doctor-server-rho-eight.vercel.app/details?email=${user?.email}`;
     useEffect(() => {
         fetch(url, {
             method: 'GET',
@@ -30,7 +30,7 @@ const OrderDetails = () => {
     }, [url, navigate])
 
     const handleStatus = id => {
-        fetch(`http://localhost:5000/service/${id}`, {
+        fetch(`https://car-doctor-server-rho-eight.vercel.app/service/${id}`, {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ status: 'Complete' })
@@ -58,7 +58,7 @@ const OrderDetails = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/service/${id}`, {
+                fetch(`https://car-doctor-server-rho-eight.vercel.app/service/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
