@@ -3,16 +3,31 @@ import { UserContext } from '../../Context/Auth_Context';
 import DetailsHadingPart from '../../Components/DetailsHadingPart/DetailsHadingPart';
 import OrderStatus from '../../Components/OrderStatus/OrderStatus';
 import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 
 const OrderDetails = () => {
     const { user } = useContext(UserContext);
     const [orders, setOrders] = useState([]);
+    const navigate = useNavigate();
 
+    const url = `http://localhost:5000/details?email=${user?.email}`;
     useEffect(() => {
-        fetch(`http://localhost:5000/details?email=${user.email}`)
+        fetch(url, {
+            method: 'GET',
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('car-access-token')}`
+            }
+        })
             .then(res => res.json())
-            .then(data => setOrders(data))
-    }, [])
+            .then(data => {
+                if(!data.error){
+                    setOrders(data)
+                }
+                else{
+                    navigate('/')
+                }
+            })
+    }, [url, navigate])
 
     const handleStatus = id => {
         fetch(`http://localhost:5000/service/${id}`, {
